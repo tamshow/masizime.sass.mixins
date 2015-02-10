@@ -1,0 +1,62 @@
+@mixin grid-row(){
+  @include clearfix;
+
+}
+
+@mixin grid-col-base(){
+  float: left;
+  min-height: 1px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+
+@mixin grid-col($col: 6, $w: 940, $g: 20, $align:false, $mb:false, $direction:left,$target:ie10,$from:1,$to:20) {
+
+  @if $col == 1 {
+    width: auto;
+    float: none;
+    &:nth-child(1n){
+      margin-#{$direction}: 0;
+    }
+  } @else {
+
+    //1カラムから
+//    $all-width : (($g * ($col - 1)) + ( $w * $col));
+//    width: ($w / $all-width ) * 100%;
+//    margin-#{$direction}: ($g/ $all-width ) * 100%;
+
+    //全体幅から
+    $one-col: ($w - ($g * ($col - 1))) / $col;
+    width: ($one-col / $w) *100%;
+    @if $align != false {
+      text-align: $align;
+    }
+    @if $mb != false {
+      margin-bottom: $mb + px;
+    }
+
+    &:nth-child(1n){
+      margin-#{$direction}: ($g/ $w) * 100%;
+    }
+
+    @include by-return($col, $direction);
+
+    @if $target == ie8 {
+      .ie8 &{margin-#{$direction}: ($g/ $w) * 100%;}
+      @for $i from $from through $to {
+        @if ($i % $col) == 1 {
+          .ie8 &.num#{$i} {
+            margin-#{$direction}: 0;
+          }
+        }
+      }
+    }
+
+  }
+
+
+}
+
+
+

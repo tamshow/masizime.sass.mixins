@@ -1,0 +1,20 @@
+
+@mixin fsize($size: 14px, $size-md: false, $size-sm: false) {
+  @include mediaProperty(font-size, $size, $size-md, $size-sm);
+//  @if $size != false {
+//    font-size: $size + px;
+//    //  font-size: $size-l/($screen-fsize) + rem;
+//  }
+//  @if $size-md != false {
+//    @include max-media($screen-md-max){
+//      //font-size: $size-md + px;
+//      font-size:$size-md/($screen-fsize-md) + rem;
+//    }
+//  }
+//  @if $size-sm != false {
+//    @include max-media($screen-sm-max){
+//    // font-size: $size-sm + px;
+//      font-size:$size-sm/($screen-fsize-sm) + rem;
+//    }
+//  }
+}

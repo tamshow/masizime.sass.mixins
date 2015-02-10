@@ -1,0 +1,6 @@
+@mixin by-return($col: 3, $direction: left) {
+  &:nth-child(#{$col}n+1){
+    margin-#{$direction}: 0;
+  }
+}
+

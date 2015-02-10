@@ -1,0 +1,25 @@
+// フォントサイズ
+// -------------------------
+$screen-fsize-sm:   15 !default;
+$screen-fsize-md:   13 !default;
+$screen-fsize:      13 !default;
+
+// line-height
+// -------------------------
+$line-height-base:      1.6 !default;
+$line-height-md:        1.6 !default;
+$line-height-sm:        1.6 !default;
+
+
+// 幅設定
+// =========================
+
+// レスポンシブ幅設定
+$screen:            960 !default;                   // Base screen
+$screen-md-max:     ($screen - 1) !default;         // Medium screen Max
+$screen-md-min:     600 !default;                   // Medium screen Min
+$screen-sm-max:     ($screen-md-min - 1) !default;  // Small screen  Max
+$screen-sm-min:     320 !default;                   // Small screen  Min
+
+$container-width:   $screen !default;
+

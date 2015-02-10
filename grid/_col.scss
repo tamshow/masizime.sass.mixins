@@ -1,0 +1,203 @@
+
+@mixin col-width($grid:12,$columnsWidth:980,$gutter:10,$direction:left,$thisGrid:1){
+
+  $columnsLeft : ($columnsWidth - (($grid - 1) * $gutter)) / $grid;
+  //(40*16)+(15*10) = 790
+  //(790 - (15*10)) /16 = 40
+  $columnsAuto : ($columnsWidth / $grid ) - ( 2 * $gutter );
+  //(40*16)+(32*10) = 960
+  //(960/16)-(2*10))  = 40
+
+  $grid-left:  ($gutter * ($grid - 1)) + ( $columnsLeft * $grid);
+  $grid-auto:  ($gutter * ($grid * 2)) + ( $columnsAuto * $grid);
+
+
+      @if $direction == left {
+        //片方だけマージンがある場合 $direction:left
+        width:((($columnsLeft * $thisGrid) + ($gutter * ($thisGrid - 1)))  / $grid-left * 100%);
+      } @else {
+        //両方マージンがある場合  $direction:auto
+        width:((($columnsAuto * $thisGrid) + ($gutter * ($thisGrid - 1)) + ($gutter * ($thisGrid - 1))) / $grid-auto * 100% );
+      }
+
+
+
+
+
+//  @for $i from 1 through $grid{
+//    .#{$name}#{$i} {
+//      @if $direction == left {
+//        //片方だけマージンがある場合 $direction:left
+//        width:((($columnsLeft * $i) + ($gutter * ($i - 1)))  / $grid-left * 100%);
+//      } @else {
+//        //両方マージンがある場合  $direction:auto
+//        width:((($columnsAuto * $i) + ($gutter * ($i - 1)) + ($gutter * ($i - 1))) / $grid-auto * 100% );
+//      }
+//    }
+//  }
+
+
+
+//  [class^="#{$name}"], [class*=" #{$name}"]{
+//    min-height: 1px;
+//    float: left;
+//    box-sizing: border-box;
+//    -moz-box-sizing: border-box;
+//    max-width:100%;
+//    @if $direction == left {
+//      //片方だけマージンがある場合 $direction:left
+//      margin-left: percentage($gutter / $grid-left);
+//      &:first-child {
+//        margin-left: 0;
+//      }
+//    } @else {
+//      //両方マージンがある場合  $direction:auto
+//      margin-left: percentage($gutter / $grid-auto);
+//      margin-right: percentage($gutter / $grid-auto);
+//    }
+//  }
+
+}
+
+@mixin col-margin($grid:12,$columnsWidth:980,$gutter:10,$direction:left, $align:false, $mb:false){
+
+  $columnsLeft : ($columnsWidth - (($grid - 1) * $gutter)) / $grid;
+  //(40*16)+(15*10) = 790
+  //(790 - (15*10)) /16 = 40
+  $columnsAuto : ($columnsWidth / $grid ) - ( 2 * $gutter );
+  //(40*16)+(32*10) = 960
+  //(960/16)-(2*10))  = 40
+
+  $grid-left:  ($gutter * ($grid - 1)) + ( $columnsLeft * $grid);
+  $grid-auto:  ($gutter * ($grid * 2)) + ( $columnsAuto * $grid);
+
+
+
+  min-height: 1px;
+  float: left;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  max-width:100%;
+  @if $direction == left {
+    //片方だけマージンがある場合 $direction:left
+    margin-left: percentage($gutter / $grid-left);
+    &:first-child {
+      margin-left: 0;
+    }
+  } @else {
+    //両方マージンがある場合  $direction:auto
+    margin-left: percentage($gutter / $grid-auto);
+    margin-right: percentage($gutter / $grid-auto);
+  }
+
+
+  @if $align != false {
+    text-align: $align;
+  }
+  @if $mb != false {
+    margin-bottom: $mb + px;
+  }
+
+
+//
+//  [class^="#{$name}"], [class*=" #{$name}"]{
+//    min-height: 1px;
+//    float: left;
+//    box-sizing: border-box;
+//    -moz-box-sizing: border-box;
+//    max-width:100%;
+//    @if $direction == left {
+//      //片方だけマージンがある場合 $direction:left
+//      margin-left: percentage($gutter / $grid-left);
+//      &:first-child {
+//        margin-left: 0;
+//      }
+//    } @else {
+//      //両方マージンがある場合  $direction:auto
+//      margin-left: percentage($gutter / $grid-auto);
+//      margin-right: percentage($gutter / $grid-auto);
+//    }
+//  }
+
+}
+
+//
+//@media only screen and (max-width: ($screen-md-max/16) + em) {
+//  .l-one_md > [class^="l-col_"],
+//  .l-one_md > [class*=" l-col_"],
+//  .l-one_md > [class^="alpha-col_"],
+//  .l-one_md > [class*=" alpha-col_"] {
+//    @include l-one(left);
+//  }
+//}
+////smallで1カラムに落とす
+//@media only screen and (max-width: ($screen-sm-max/16) + em) {
+//  .l-one_sm > [class^="l-col_"],
+//  .l-one_sm > [class*=" l-col_"],
+//  .l-one_sm > [class^="alpha-col_"],
+//  .l-one_sm > [class*=" alpha-col_"]{
+//    @include l-one(left);
+//  }
+//}
+//
+//.l-row{
+//  @include row;
+//}
+//
+//[class^="l-col"], [class*=" l-col"]{
+//  @include col-base(16,40,20,left)
+//}
+//
+//@for $i from 1 through 16{
+//  .l-col_#{$i} {
+//    @include col($i,16,40,20,left);
+//  }
+//}
+//
+//
+//.alpha-row{
+//  @include row;
+//}
+//
+//[class^="alpha-col"], [class*=" alpha-col"]{
+//  @include col-base(12,40,20,left)
+//}
+//
+//@for $i from 1 through 12{
+//  .alpha-col_#{$i} {
+//    @include col($i,12,40,20,left);
+//  }
+//}
+
+
+//@mixin col($num:1, $grid:16,$columns:40,$gutter:10,$direction:left){
+//  $grid-left:  ($gutter * ($grid - 1)) + ( $columns * $grid);
+//  $grid-auto:  ($gutter * ($grid * 2)) + ( $columns * $grid);
+//
+//  @if $direction == left {
+//    //片方だけマージンがある場合 $direction:left
+//    width:((($columns * $num) + ($gutter * ($num - 1)))  / $grid-left * 100%);
+//  } @else {
+//    //両方マージンがある場合  $direction:auto
+//    width:((($columns * $num) + ($gutter * ($num - 1)) + ($gutter * ($num - 1))) / $grid-auto * 100% );
+//  }
+//}
+//@mixin col-base($grid:16,$columns:40,$gutter:10,$direction:left){
+//  $grid-left:  ($gutter * ($grid - 1)) + ( $columns * $grid);
+//  $grid-auto:  ($gutter * ($grid * 2)) + ( $columns * $grid);
+//  min-height: 1px;
+//  float: left;
+//  box-sizing: border-box;
+//  -moz-box-sizing: border-box;
+//  @if $direction == left {
+//    //片方だけマージンがある場合 $direction:left
+//    margin-left: percentage($gutter / $grid-left);
+//    &:first-child {
+//      margin-left: 0;
+//    }
+//  } @else {
+//    //両方マージンがある場合  $direction:auto
+//    margin-left: percentage($gutter / $grid-auto);
+//    margin-right: percentage($gutter / $grid-auto);
+//  }
+//}

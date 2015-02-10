@@ -1,0 +1,21 @@
+
+@mixin w($size: 20px, $size-md: false, $size-sm: false) {
+  @include mediaProperty(width, $size, $size-md, $size-sm);
+}
+
+@mixin w-percentage($size: 20, $parentW:0, $size-md: false, $parentW-md:0 , $size-sm: false, $parentW-sm:0 ) {
+  @if $size != false {
+    width: percentage($size / $parentW);
+  }
+  @if $size-md != false {
+    @include max-media($screen-md-max){
+      width: percentage($size-md / $parentW-md);
+    }
+  }
+  @if $size-sm != false {
+    @include max-media($screen-sm-max){
+      width: percentage($size-sm / $parentW-sm);
+    }
+  }
+}
+

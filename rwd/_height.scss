@@ -1,0 +1,3 @@
+@mixin h($size: 20px, $size-md: false, $size-sm: false) {
+  @include mediaProperty(height, $size, $size-md, $size-sm);
+}

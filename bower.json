@@ -1,0 +1,25 @@
+{
+  "name": "masizime.sass.mixins",
+  "description": "masizime - Private Sass Mixin Library.",
+  "version": "1.0.0",
+  "main": "_masizime.scss",
+  "license": "MIT",
+  "ignore": [
+    "**/.*"
+  ],
+  "keywords": [
+    "masizime",
+    "css",
+    "mixins",
+    "sass",
+    "scss"
+  ],
+  "authors": [
+    "masizime (http://masizime.com/)"
+  ],
+  "homepage": "https://github.com/tamshow/masizime.sass.mixins",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tamshow/masizime.sass.mixins"
+  }
+}

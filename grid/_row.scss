@@ -1,0 +1,7 @@
+@mixin row() {
+  @include clearfix;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+

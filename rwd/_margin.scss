@@ -1,0 +1,72 @@
+//一括
+@mixin m($t:10px,$r:true,$b:true,$l:true){
+  @if $r == true {
+    margin: $t;
+    //  margin:($t/$screen-fsize) + rem;
+  }@else if $b == true {
+    margin: $t $r;
+    //  margin:($t/$screen-fsize) + rem ($r/$screen-fsize) + rem;
+  } @else if $l == true {
+    margin: $t $r $b;
+    //  margin:($t/$screen-fsize) + rem ($r/$screen-fsize) + rem ($b/$screen-fsize) + rem;
+  } @else{
+    margin: $t $r $b $l;
+    //   margin:($t/$screen-fsize) + rem ($r/$screen-fsize) + rem ($b/$screen-fsize) + rem ($l/$screen-fsize) + rem;
+  }
+}
+
+//個別
+//-----------------------------------------
+
+
+@mixin mt($size: 20px, $size-md: false, $size-sm: false) {
+  @include mediaProperty(margin-top, $size, $size-md, $size-sm);
+}
+
+@mixin mr($size: 20px, $size-md: false, $size-sm: false) {
+  @include mediaProperty(margin-right, $size, $size-md, $size-sm);
+}
+
+@mixin mb($size: 20px, $size-md: false, $size-sm: false) {
+  @include mediaProperty(margin-bottom, $size, $size-md, $size-sm);
+}
+@mixin ml($size: 20px, $size-md: false, $size-sm: false) {
+  @include mediaProperty(margin-left, $size, $size-md, $size-sm);
+
+}
+
+
+//パーセント
+//-----------------------------------------
+
+@mixin mr-percentage($size: 20, $parentW:0, $size-md: false, $parentW-md:0 , $size-sm: false, $parentW-sm:0 ) {
+  @if $size != false {
+    margin-right: percentage($size / $parentW);
+  }
+  @if $size-md != false {
+    @include max-media($screen-md-max){
+      margin-right: percentage($size-md / $parentW-md);
+    }
+  }
+  @if $size-sm != false {
+    @include max-media($screen-sm-max){
+      margin-right: percentage($size-sm / $parentW-sm);
+    }
+  }
+}
+
+@mixin ml-percentage($size: 20, $parentW:0, $size-md: false, $parentW-md:0 , $size-sm: false, $parentW-sm:0 ) {
+  @if $size != false {
+    margin-left: percentage($size / $parentW);
+  }
+  @if $size-md != false {
+    @include max-media($screen-md-max){
+      margin-left: percentage($size-md / $parentW-md);
+    }
+  }
+  @if $size-sm != false {
+    @include max-media($screen-sm-max){
+      margin-left: percentage($size-sm / $parentW-sm);
+    }
+  }
+}

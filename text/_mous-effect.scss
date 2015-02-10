@@ -1,0 +1,42 @@
+// @ MOUSE EFFEXT
+// ------------------------------------------------------------
+
+
+@mixin mouse-effect-hover($r:0,$g:0,$b:0,$num1:0.1,$num2:0.2){
+  &:hover,
+  &:focus{
+    background-image: linear-gradient(transparent, rgba($r, $g, $b, $num1) 40%, rgba($r, $g, $b, $num2));
+  }
+  &:focus{ outline: 0 }
+}
+
+@mixin mouse-effect-on($r:0,$g:0,$b:0,$num1:0.1,$num2:0.2){
+    background-image: linear-gradient(transparent, rgba($r, $g, $b, $num1) 40%, rgba($r, $g, $b, $num2));
+}
+
+@mixin mouse-effect-active(){
+  &:active{
+   box-shadow: inset 0 0 6px 1px rgba(0, 0, 0, .1);
+  }
+}
+
+@mixin mouse-effect-disabled(){
+  &[disabled],
+  &:hover,
+  &:focus,
+  &:active{
+    opacity: .4;
+    cursor: not-allowed;
+  }
+}
+
+
+@mixin mouse-effect($r:255,$g:255,$b:255,$num1:1,$num1:0.1,$num2:0.2){
+  @include mouse-effect-hover($r,$g,$b,$num1,$num2);
+  @include mouse-effect-active();
+  &[disabled]{
+    opacity: .4;
+    cursor: not-allowed;
+  }}
+
+

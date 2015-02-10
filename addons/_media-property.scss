@@ -1,0 +1,18 @@
+// @ MEDIA PROPERTY
+// ------------------------------------------------------------
+
+@mixin media-property ($propertyName:top, $size: 0, $size-md: false, $size-sm: false){
+  @if $size != false {
+    #{$propertyName}:$size;
+  }
+  @if $size-md != false {
+    @include max-media($screen-md-max){
+      #{$propertyName}:$size-md;
+    }
+  }
+  @if $size-sm != false {
+    @include max-media($screen-sm-max){
+      #{$propertyName}:$size-sm;
+    }
+  }
+}
