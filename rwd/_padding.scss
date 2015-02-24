@@ -16,19 +16,19 @@
 
 
 @mixin pt($size: 20px, $size-md: false, $size-sm: false) {
-  @include mediaProperty(padding-top, $size, $size-md, $size-sm);
+  @include media-property(padding-top, $size, $size-md, $size-sm);
 }
 
 @mixin pr($size: 20px, $size-md: false, $size-sm: false) {
-  @include mediaProperty(padding-right, $size, $size-md, $size-sm);
+  @include media-property(padding-right, $size, $size-md, $size-sm);
 }
 
 @mixin pb($size: 20px, $size-md: false, $size-sm: false) {
-  @include mediaProperty(padding-bottom, $size, $size-md, $size-sm);
+  @include media-property(padding-bottom, $size, $size-md, $size-sm);
 }
 
 @mixin pl($size: 20px, $size-md: false, $size-sm: false) {
-  @include mediaProperty(padding-left, $size, $size-md, $size-sm);
+  @include media-property(padding-left, $size, $size-md, $size-sm);
 }
 
 //パーセント
