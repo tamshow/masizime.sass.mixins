@@ -1,7 +1,7 @@
 {
   "name": "masizime.sass.mixins",
   "description": "masizime - Private Sass Mixin Library.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "_masizime.scss",
   "license": "MIT",
   "ignore": [
