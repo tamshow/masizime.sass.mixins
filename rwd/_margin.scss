@@ -20,18 +20,18 @@
 
 
 @mixin mt($size: 20px, $size-md: false, $size-sm: false) {
-  @include mediaProperty(margin-top, $size, $size-md, $size-sm);
+  @include media-property(margin-top, $size, $size-md, $size-sm);
 }
 
 @mixin mr($size: 20px, $size-md: false, $size-sm: false) {
-  @include mediaProperty(margin-right, $size, $size-md, $size-sm);
+  @include media-property(margin-right, $size, $size-md, $size-sm);
 }
 
 @mixin mb($size: 20px, $size-md: false, $size-sm: false) {
-  @include mediaProperty(margin-bottom, $size, $size-md, $size-sm);
+  @include media-property(margin-bottom, $size, $size-md, $size-sm);
 }
 @mixin ml($size: 20px, $size-md: false, $size-sm: false) {
-  @include mediaProperty(margin-left, $size, $size-md, $size-sm);
+  @include media-property(margin-left, $size, $size-md, $size-sm);
 
 }
 

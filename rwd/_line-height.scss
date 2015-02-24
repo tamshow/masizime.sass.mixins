@@ -1,5 +1,5 @@
 
 @mixin lh($size: 1, $size-md: false, $size-sm: false) {
-  @include mediaProperty(line-height, $size, $size-md, $size-sm);
+  @include media-property(line-height, $size, $size-md, $size-sm);
 }
 

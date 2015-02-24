@@ -1,15 +1,15 @@
 @mixin t($size: 0, $size-md: false, $size-sm: false) {
-  @include mediaProperty(top, $size, $size-md, $size-sm);
+  @include media-property(top, $size, $size-md, $size-sm);
 }
 
 @mixin r($size: 0, $size-md: false, $size-sm: false) {
-  @include mediaProperty(right, $size, $size-md, $size-sm);
+  @include media-property(right, $size, $size-md, $size-sm);
 }
 
 @mixin b($size: 0, $size-md: false, $size-sm: false) {
-  @include mediaProperty(bottom, $size, $size-md, $size-sm);
+  @include media-property(bottom, $size, $size-md, $size-sm);
 }
 
 @mixin l($size: 0, $size-md: false, $size-sm: false) {
-  @include mediaProperty(left, $size, $size-md, $size-sm);
+  @include media-property(left, $size, $size-md, $size-sm);
 }

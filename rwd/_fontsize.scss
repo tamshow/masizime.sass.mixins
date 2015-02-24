@@ -1,6 +1,6 @@
 
 @mixin fsize($size: 14px, $size-md: false, $size-sm: false) {
-  @include mediaProperty(font-size, $size, $size-md, $size-sm);
+  @include media-property(font-size, $size, $size-md, $size-sm);
 //  @if $size != false {
 //    font-size: $size + px;
 //    //  font-size: $size-l/($screen-fsize) + rem;
