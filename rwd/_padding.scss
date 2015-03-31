@@ -1,3 +1,4 @@
+@charset "utf-8";
 //一括
 @mixin p($t:10px,$r:true,$b:true,$l:true){
   @if $r == true {
