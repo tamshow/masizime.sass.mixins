@@ -4,6 +4,7 @@
 @mixin text-overflow() {
   overflow: hidden;
   text-overflow: ellipsis;
+    word-wrap: normal;//forIE
   white-space: nowrap;
 }
 
